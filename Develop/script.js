@@ -5,15 +5,16 @@ var uppercase = lowercase.toUpperCase();
 var number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 var specialChar = "!()?[]_~`;:@#$%^&*+=";
 
+//elements
 var passwordText = document.querySelector("#password");
 var generateBtn = document.querySelector("#generate");
 
-//try lowercase string, if it is true, then push the random letter from the string to the password.
-
+//test through each boolean and if it is true, then push the array or string to dataType 
 function generatePassword(){
   var dataType = [];
   password = ""
 
+  //all the prompts in user interface.
   var length = prompt("How long do you want your password to be?");
   while (length > 128 || length < 8){
     alert("Please choose number between 8 and 128.")
@@ -25,7 +26,7 @@ function generatePassword(){
   var num = confirm ("Would you like numbers in your password?");
   var speChar = confirm ("Would you like special characters in your password?");
   
-
+// checking the booleans 
   if (lowercaseLetter){
     dataType.push(lowercase);
   }
@@ -39,6 +40,7 @@ function generatePassword(){
     dataType.push(specialChar);
   } 
 
+  //loop through the dataType array and pick a random character from the array each time it loops through it.
   for (var i = 0; i < length; i++) {
     var random = Math.floor(Math.random() * dataType.length);
     var anyArray = dataType[random];
@@ -50,9 +52,6 @@ function generatePassword(){
   return password;
 
 }
-
-
-
 
 
 function writePassword() {
